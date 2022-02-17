@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   describe 'GET users#index' do
-    before(:example) { get 'users/index/posts' }
+    before(:example) { get '/users' }
     it 'renders the correct template' do
       expect(response).to render_template(:index)
     end
@@ -15,7 +15,7 @@ RSpec.describe 'Users', type: :request do
   end
 
   describe 'GET user#show' do
-    before(:example) { get '/users/show' }
+    before(:example) { get '/users/index' }
     it 'renders the correct template' do
       expect(response).to render_template(:show)
     end

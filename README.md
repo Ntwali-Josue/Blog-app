@@ -16,20 +16,22 @@
 
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
-- Ruby
-- Ruby on Rails
-- Ruby Gems
-- PostgreSQL
+### Prerequisites 📌
+- `Ruby`
+- `Ruby on Rails` 
+- `Ruby Gems` 
+- `PostgreSQL`
 ### Setup 🔂 
-- Clone the repository from [GitHub](https://github.com/Ntwali-Josue/Blog-app.git)
-- cd into the directory
+- Clone the repository using this [GitHub](https://github.com/Ntwali-Josue/Blog-app.git) link.
+- `cd` into the directory
 ### Install ⚙️
 - Run `bundle install`
 
 ### Usage 💻
 - Run `rails s` to start the server.
 
+### Testing 🔎
+- Run `rspec` to run the tests.
 
 ## Author
 

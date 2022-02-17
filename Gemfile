@@ -12,6 +12,9 @@ gem 'sprockets-rails'
 # Use Rubocop linter
 gem 'rubocop', '>= 1.0', '< 2.0'
 
+# Add ffi gem
+gem 'ffi', '~> 1.15', '>= 1.15.5'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 
@@ -32,6 +35,8 @@ gem 'jbuilder'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
+
+gem 'rails-controller-testing'
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
@@ -54,12 +59,12 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails', '>= 3.9.0'
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
-
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 

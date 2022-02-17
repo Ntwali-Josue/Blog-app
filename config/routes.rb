@@ -4,6 +4,6 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show]
   end
   # Defines the root path route ("/")
-  root 'users/#show'
+  root 'users/#index'
   # root "articles#index"
 end

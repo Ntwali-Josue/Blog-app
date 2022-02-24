@@ -1,2 +1,17 @@
-<h1>Posts#show</h1>
-<p>Showing the post.</p>
+<div class="container py-3 d-flex flex-column">
+     <div class= "post_container">
+      <div class="post-details">
+        <h2>Post #<%= @post.id %> by <%= @user.name%></h2>
+        <div class="likes-comments-container">
+          <span>Comments: <%= @post.postsCounter || 0 %></span>
+          <span>Likes: <%= @post.LikesCounter || 0 %></span>
+        </div>
+      </div>
+      <p><%= @post.text %></p>
+     </div>
+      <ul class="comments-list">
+        <% @post.most_recent_posts.each do |post| %>
+          <li> <%= @user.name%> : <%= post.text%></li>
+        <%end%>
+      </ul>
+</div>

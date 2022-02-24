@@ -1,19 +1,15 @@
 class Post < ApplicationRecord
-  belongs_to :users
-  has_many :comments, class_name: 'Comment'
-  has_many :likes, class_name: 'Like'
+  belongs_to :user
+  has_many :comments
+  has_many :likes
+  # has_many :user_posts
 
-  def update_comments_counter
-    commentscounter = Comment.where(post_id: id).count
-    update(CommentsCounter: commentscounter)
+  def most_recent_posts
+    posts = Post.all
+    posts.order(created_at: :desc).limit(3)
   end
 
-  def update_likes_counter
-    likescounter = Like.where(post_id: id).count
-    update(LikesCounter: likescounter)
-  end
-
-  def most_recent_comments
-    comments.order(created_at: :desc).limit(5)
+  def update_posts_count
+    user.increment!(:posts_counter)
   end
 end

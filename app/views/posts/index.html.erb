@@ -1,2 +1,16 @@
-<h1>Posts#index</h1>
-<p>This is the post.</p>
+<div class="comments py-3">
+  <%= render partial: "layouts/header", locals: {user: @user} %>
+  <% @posts.each do |post|%>
+    <div class="d-flex flex-column py-3">
+      <%= render partial: "posts/post", locals: {post: post, user: @user} %>
+      <ul class="comments-list">
+        <% post.most_recent_posts.each do |post| %>
+          <li> <%= @user.name%> : <%= post.text%></li>
+        <%end%>
+      </ul>
+  </div>
+  <%end%>
+  <div class="pagination-btn">
+    <%= link_to "Pagination"%>
+  </div>
+</div>

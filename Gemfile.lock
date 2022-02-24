@@ -119,13 +119,18 @@ GEM
     msgpack (1.4.5)
     net-imap (0.2.3)
       digest
+      net-protocol
       strscan
     net-pop (0.1.1)
       digest
+      net-protocol
+      timeout
+    net-protocol (0.1.2)
       io-wait
       timeout
     net-smtp (0.3.1)
       digest
+      net-protocol
       timeout
     nio4r (2.5.8)
     nokogiri (1.13.1-x64-mingw32)

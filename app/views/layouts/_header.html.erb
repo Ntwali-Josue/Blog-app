@@ -1,0 +1,9 @@
+<div class="header-wrapper d-flex justify-content-around"> 
+  <div class="image-container">
+    <%=image_tag(image_url(user), alt: "#{user.name}'s photo") %>
+  </div>
+  <div class="user_container d-flex justify-content-between">
+     <h2><%= user.name %></h2>
+     <p>Number of posts: <%= post_counter(user) %></p>
+  </div>
+</div>

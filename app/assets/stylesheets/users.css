@@ -1,0 +1,52 @@
+.header-wrapper {
+  display: flex;
+}
+
+.header-wrapper .image-container {
+  border: 2px solid black;
+  margin: 0 20px 10px 20px;
+  width: 10%;
+}
+
+.header-wrapper .image-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.header-wrapper .user_container {
+  border: 2px solid black;
+  width: calc(100% - 450px);
+  padding: 0 10px;
+  margin: 0 20px 10px 0;
+  text-decoration: none;
+  color: #000;
+}
+
+.header-wrapper .user_container p {
+  text-align: right;
+}
+
+.bio {
+  border: 2px solid black;
+  width: 81%;
+  margin-left: 20px;
+  padding: 0 5px;
+}
+
+.see-posts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.see-posts a {
+  text-decoration: none;
+  color: #000;
+  border: 2px solid #000;
+  width: 150px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+}

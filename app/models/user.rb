@@ -1,11 +1,10 @@
 class User < ApplicationRecord
-  has_many :posts, class_name: 'Post'
-  has_many :comments, class_name: 'Comment'
-  has_many :likes, class_name: 'Like'
+  has_many :posts
+  has_many :comments
+  has_many :likes
 
   def most_recent_posts
-    posts = Post.all
-    posts.order(created_at: :desc).limit(3)
+    Post.where(user_id: id).last(3)
   end
 
   def update_posts_counter

@@ -4,8 +4,14 @@ class LikesController < ApplicationController
   end
 
   def create
-    @post = Post.find_by_id(params[:post_id])
-    @post.increment!(:LikesCounter)
-    redirect_back(fallback_location: root_path)
+    @post = Post.find(params[:post_id])
+    @like = current_user.likes.new(post_id: @post.id)
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to @post }
+      else
+        format.html { redirect_to @post }
+      end
+    end
   end
 end

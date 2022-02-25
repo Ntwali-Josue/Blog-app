@@ -6,7 +6,12 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find_by_id(params[:post_id])
     @post.comments.create(comment_params.merge(user_id: current_user.id))
-    redirect_back(fallback_location: root_path)
+    if @post.save
+      redirect_to post_path(@post)
+    else
+      @article = Post.find(params[:post_id])
+      redirect_to post_path(@post)
+    end
   end
 
   private

@@ -1,5 +1,55 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
+  Aenean massa.'
+
+  before :each do
+    User.create(id: 1, name: 'hamza', posts_counter: 0)
+  end
+
+  subject do
+    Post.new(title: 'Anything', text: 'hhh crazy', comments_counter: 2, likes_counter: 1, author_id: 1)
+  end
+
+  before { subject.save }
+
+  it 'is valid with valid attributes' do
+    expect(subject).to be_valid
+  end
+
+  it 'is valid with valid attributes' do
+    subject.text = text
+    expect(subject).to_not be_valid
+  end
+
+  it 'is not valid without a title' do
+    subject.title = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'is not valid without a text' do
+    subject.text = nil
+    expect(subject).to_not be_valid
+  end
+
+  it 'is not valid with likes_counter negative' do
+    subject.likes_counter = -5
+    expect(subject).to_not be_valid
+  end
+
+  it 'is not valid with likes_counter not integer' do
+    subject.likes_counter = 7.7
+    expect(subject).to_not be_valid
+  end
+
+  it 'is not valid with comments_counter negative' do
+    subject.comments_counter = -5
+    expect(subject).to_not be_valid
+  end
+
+  it 'is not valid with comments_counter not integer' do
+    subject.comments_counter = 7.7
+    expect(subject).to_not be_valid
+  end
 end

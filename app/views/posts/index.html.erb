@@ -1,9 +1,8 @@
 <div class="comments py-3">
   <p id="notice"><%= notice %></p>
   <%= render partial: "layouts/header", locals: {user: @user} %>
-  <div class="form p-2 my-4 border border-dark">
-    <%= render partial: "form" %>
-  </div>
+  <%= link_to "Add post", new_post_path%>
+  <h2><%= posts?(@posts) %></h3>
   <% @posts.each do |post|%>
     <div class="d-flex flex-column py-3">
       <%= render partial: "posts/post", locals: {post: post, user: @user} %>

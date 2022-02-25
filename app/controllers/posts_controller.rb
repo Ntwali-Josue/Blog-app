@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(post_params)
+    @post = current_user.posts.new(post_params)
     @post.user_id = current_user.id if current_user
     if @post.save
       flash[:notice] = 'Post was successfully created!!!'

@@ -2,14 +2,14 @@ require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
   before :each do
-    User.create(id: 1, name: 'hamza', posts_counter: 0)
+    User.create(id: 1, name: 'Joshh', PostsCounter: 0)
   end
 
   before :each do
-    Post.create(id: 1, title: 'Anything', text: 'Lorem ipsum', comments_counter: 0, likes_counter: 0, author_id: 1)
+    Post.create(id: 1, title: 'Post title', text: 'Lorem ipsum', postsCounter: 0, LikesCounter: 0, user_id: 1)
   end
   subject do
-    Comment.new(author_id: 1, post_id: 1, text: 'hahah you are crazy')
+    Comment.new(user_id: 1, post_id: 1, text: 'this is the text')
   end
   before { subject.save }
 
@@ -22,8 +22,8 @@ RSpec.describe Comment, type: :model do
     expect(subject).to_not be_valid
   end
 
-  it 'checks that "author_id" is an integer' do
-    subject.author_id = 7.5
+  it 'checks that "user_id" is an integer' do
+    subject.user_id = 7.5
     expect(subject).to_not be_valid
   end
 

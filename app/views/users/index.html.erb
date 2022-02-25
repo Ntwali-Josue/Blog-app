@@ -1,6 +1,7 @@
-<h1 class="container py-5">Welcome to your Blog App</h1>
+<div class="container">
+<h1 class="py-5">Welcome to your Blog App</h1>
 <% @users.each do |user| %>
-  <div class="header-wrapper container d-flex justify-content-around my-3"> 
+  <div class="header-wrapper"> 
     <div class="image-container">
       <%=image_tag(image_url(user), alt: "User#{user.id} photo") %>
     </div>
@@ -10,3 +11,4 @@
     <%end%>
   </div>
 <%end%>
+</div>

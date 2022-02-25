@@ -1,7 +1,7 @@
 <div class="container py-3 d-flex flex-column">
      <div class= "post_container">
       <div class="post-details">
-        <h2>Post #<%= @post.id %> by <%= @user.name%></h2>
+        <h2>Post Title: #<%= @post.title %> by <%= @user.name%></h2>
         <div class="likes-comments-container">
           <span>Comments: <%= @post.postsCounter || 0 %></span>
           <span>Likes: <%= @post.LikesCounter || 0 %></span>
@@ -14,4 +14,6 @@
           <li> <%= @user.name%> : <%= post.text%></li>
         <%end%>
       </ul>
+      <%= render partial: "likes/form" %>
+      <%= render partial: "comments/form"%>
 </div>

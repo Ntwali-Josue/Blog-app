@@ -1,19 +1,17 @@
 <h2>Add a new post here. </h2>
-<%= form_with model: @post, scope: :data do |f| %>
+<%= simple_form_for @post do |f| %>
 <div class="card bg-transparent">
   <div class="card-body">
 
     <div class="mb-3">
-      <%= f.label :title, { class: "form-label"} %>
-      <%= f.text_field :title, { class: "form-control", placeholder: "Post title" } %>
+      <%= f.input :title, class: "form-control", placeholder: "Post title" %>
     </div>
 
     <div class="mb-3">
-      <%= f.label :text, { class: "form-label"} %>
-      <%= f.text_area :text, { class: "form-control", placeholder: "Content" } %>
+      <%= f.input :text, as: :text, class: "form-control", placeholder: "Enter your content here ..."%>
     </div>
 
-    <%= f.submit "Create post", class: "btn btn-primary" %>
+    <%= f.button :submit, class: "pagination-btn" %>
 
   </div>
 </div>

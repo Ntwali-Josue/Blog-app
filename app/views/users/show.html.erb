@@ -5,12 +5,14 @@
      <h2>BIO</h2>
      <p><%= @user.bio %></p>
   </div>
+  <h2><%= posts?(@posts) %></h2>
   <div class="user-posts">
   <% @user.most_recent_posts.each do |post| %>
   <%= render partial: "posts/post", locals: {post: post, user: @user} %>
   <% end %>
   </div>
   <div class="see-posts">
-    <%= link_to "See all posts", user_posts_path(@user.id), {class: "btn btn-primary w-25"}%>
+    <%= link_to "See all posts", user_posts_path(@user.id)%>
+    <%= link_to "Add post", new_post_path%>
   </div>
 </div>

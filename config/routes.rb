@@ -3,9 +3,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   root 'users#index'
-
+  get '/all_posts', to: 'posts#all_posts'
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show, :new, :create]
+    resources :posts, only: [:index, :show, :new, :create, :destroy]
   end
   # Defines the root path route ("/")
   # root "articles#index"

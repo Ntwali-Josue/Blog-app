@@ -16,4 +16,7 @@
       </ul>
       <%= render partial: "likes/form" %>
       <%= render partial: "comments/form"%>
+      <% if can? :destroy, @post %>
+      <%= button_to "Delete", user_post_path, method: :delete %>
+      <% end %>
 </div>

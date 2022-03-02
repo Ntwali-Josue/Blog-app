@@ -1,7 +1,9 @@
 <div class="comments py-3">
   <p id="notice"><%= notice %></p>
   <%= render partial: "layouts/header", locals: {user: @user} %>
-  <%= link_to "Add post", new_post_path%>
+  <div class="see-posts">
+   <%= link_to "Add post", new_post_path%>
+  </div>
   <h2><%= posts?(@posts) %></h3>
   <% @posts.each do |post|%>
     <div class="d-flex flex-column py-3">

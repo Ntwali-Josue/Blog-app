@@ -26,7 +26,10 @@ To get a local copy up and running follow these simple example steps.
 - `cd` into the directory
 ### Install ⚙️
 - Run `bundle install`
-
+### Database 💾
+- Run `rails db:create` to create the database.
+- Run `rails db:migrate` to create the tables.
+- Run `rails db:seed` to populate the tables.
 ### Usage 💻
 - Run `rails s` to start the server.
 

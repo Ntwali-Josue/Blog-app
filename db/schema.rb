@@ -20,7 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_02_173223) do
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id", "post_id"], name: "index_comments_on_user_id_and_post_id", unique: true
+    t.index ["user_id", "post_id"], name: "index_comments_on_user_id_and_post_id"
   end
 
   create_table "likes", force: :cascade do |t|

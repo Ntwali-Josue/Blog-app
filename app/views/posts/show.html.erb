@@ -10,13 +10,19 @@
       <p><%= @post.text %></p>
      </div>
       <ul class="comments-list">
-        <% @post.most_recent_posts.each do |post| %>
-          <li> <%= @user.name%> : <%= post.text%></li>
+        <% @comments.each do |comment| %>
+          <li> 
+          <%= comment.user.name%>
+          <%= comment.text%>
+          <% if can? :destroy, comment %>
+            <%= button_to "X", post_comment_path(@post.id, comment.id), method: :delete %>
+          <% end %>
+          </li>
         <%end%>
       </ul>
       <%= render partial: "likes/form" %>
       <%= render partial: "comments/form"%>
       <% if can? :destroy, @post %>
-      <%= button_to "Delete", user_post_path, method: :delete %>
+      <%= button_to "Delete", user_post_path(@user, @post), method: :delete %>
       <% end %>
 </div>

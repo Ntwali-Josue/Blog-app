@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/BlockLength
 require 'rails_helper'
 
 describe 'Posts show Page', type: :feature do
@@ -29,33 +30,34 @@ describe 'Posts show Page', type: :feature do
       visit "/users/#{@user.id}/posts/#{@post1.id}"
     end
 
-    it 'can see the post title' do
-      expect(page).to have_content("Post 1")
+    it 'should see the post title' do
+      expect(page).to have_content('Post 1')
     end
 
-    it 'can see who wrote the post.' do
-      expect(page).to have_content("josh")
+    it 'should see who wrote the post.' do
+      expect(page).to have_content('josh')
     end
 
-    it 'can count the post\s comments.' do
-      expect(page).to have_content("Comments: 1")
+    it 'should count the post\s comments.' do
+      expect(page).to have_content('Comments: 1')
     end
 
-    it 'can count the post\s likes.' do
+    it 'should count the post\s likes.' do
       expect(page).to have_content("Likes: #{@post1.LikesCounter}")
     end
-    
-    it 'can see the some of the post\'s body.' do
+
+    it 'should see the some of the post\'s body.' do
       visit "/users/#{@user.id}/posts"
-      expect(page).to have_content("text 1")
+      expect(page).to have_content('text 1')
     end
 
-    it 'can see a section for pagination' do
-      expect(page).to have_content("#{@user.name}")
+    it 'should see a section for pagination' do
+      expect(page).to have_content(@user.name.to_s)
     end
 
-    it 'redirects to the user\'s show posts page when I click the button.' do
-      expect(page).to have_content("josh comment text")
+    it 'should redirects to the user\'s show posts page when I click the button.' do
+      expect(page).to have_content('josh comment text')
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

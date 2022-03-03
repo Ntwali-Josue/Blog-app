@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/BlockLength
 require 'rails_helper'
 
 describe 'Users show Page', type: :feature do
@@ -21,46 +22,47 @@ describe 'Users show Page', type: :feature do
       click_button 'Log in'
     end
 
-    it 'can see the user\'s profile picture.' do
+    it 'should see the user\'s profile picture.' do
       visit "/users/#{@user.id}"
       expect(page).to have_css('img')
     end
 
-    it 'can see the user\'s bio.' do
+    it 'should see the user\'s bio.' do
       visit "/users/#{@user.id}"
       expect(page).to have_content(@user.bio)
     end
 
-    it 'can see the user\'s username.' do
+    it 'should see the user\'s username.' do
       visit "/users/#{@user.id}"
       expect(page).to have_content(@user.name)
     end
 
-    it 'can see number of posts the user has written.' do
+    it 'should see number of posts the user has written.' do
       visit "/users/#{@user.id}"
       expect(@user.posts.count).to eq(3)
     end
 
-    it 'I can see the the user\'s first 3 posts.' do
+    it 'should see the the user\'s first 3 posts.' do
       visit "/users/#{@user.id}"
       expect(@user.most_recent_posts.count).to eq(3)
     end
 
-    it 'can see a button that lets me view all of a user\'s posts.' do
+    it 'should see a button that lets me view all of a user\'s posts.' do
       visit "/users/#{@user.id}"
       expect(page).to have_link('See all posts')
     end
 
-    it 'redirects to the user\'s posts page when I click the button.' do
+    it 'should redirect to the user\'s posts page when I click the button.' do
       visit "/users/#{@user.id}"
       click_link("Post ##{@post1.id}")
       expect(current_path).to eq("/users/#{@user.id}/posts/#{@post1.id}")
     end
 
-    it 'redirects to the user\'s posts page when I click the button.' do
+    it 'should redirect to the user\'s posts page when I click the button.' do
       visit "/users/#{@user.id}"
       click_link('See all posts')
       expect(current_path).to eq("/users/#{@user.id}/posts")
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

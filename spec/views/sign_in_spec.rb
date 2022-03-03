@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/BlockLength
 require 'rails_helper'
 
 describe 'Sign In', type: :feature do
@@ -9,14 +10,14 @@ describe 'Sign In', type: :feature do
       visit 'users/sign_in'
     end
 
-    it 'I can see the username and password inputs and the "Log in" button.' do
+    it 'should see the username and password inputs and the "Log in" button.' do
       expect(page).to have_field('user[email]')
       expect(page).to have_field('password')
       expect(page).to have_button('Log in')
       expect(page).to have_content('Sign in')
     end
 
-    it 'When I click the submit button without filling in the username and the password, I get a detailed error.' do
+    it 'should get a detailed error, when fields are empty' do
       within('form') do
         fill_in 'user[email]', with: ''
         fill_in 'password', with: ''
@@ -25,7 +26,7 @@ describe 'Sign In', type: :feature do
       expect(page).to have_content 'Invalid Email or password.'
     end
 
-    it 'When I click the submit button after filling in the username and the password with incorrect data, I get a detailed error.' do
+    it 'should get a detailed error, when submitting incorrect data.' do
       within('form') do
         fill_in 'user[email]', with: 'incorrect@incorrect'
         fill_in 'password', with: 'incorrect'
@@ -34,7 +35,7 @@ describe 'Sign In', type: :feature do
       expect(page).to have_content 'Invalid Email or password.'
     end
 
-    it 'When I click the submit button after filling in the username and the password with correct data, I am redirected to the root page.' do
+    it 'should redirect to the root page, when submitting correct data.' do
       within('form') do
         fill_in 'user[email]', with: 'rafa@rafa'
         fill_in 'password', with: '123456'
@@ -46,3 +47,4 @@ describe 'Sign In', type: :feature do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

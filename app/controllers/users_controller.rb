@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
 
   def index
     @users = User.order(:id)
   end
 
   def show
-    @user = User.find_by_id(params[:id])
+    @user = User.find(params[:id])
     @posts = Post.includes(:user).where(user_id: @user.id).order(:id)
   end
 

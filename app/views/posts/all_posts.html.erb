@@ -1,0 +1,19 @@
+<div class="comments py-3">
+  <p id="notice"><%= notice %></p>
+  <div class="see-posts">
+   <%= link_to "Add post", new_post_path%>
+  </div>
+  <% @posts.each do |post|%>
+    <div class="d-flex flex-column py-3">
+      <p><%= post.user.name %></p>
+      <ul class="comments-list">
+        <% post.most_recent_posts.each do |post| %>
+          <li><%= post.text%></li>
+        <%end%>
+      </ul>
+  </div>
+  <%end%>
+  <div class="pagination-btn">
+    <%= link_to "Pagination"%>
+  </div>
+</div>

@@ -3,9 +3,12 @@ require 'rails_helper'
 describe 'Users Index Page', type: :feature do
   context 'when successfull' do
     before :each do
-      @user1 = User.new(name: 'josh', bio: "josh bio", email: 'josh@josh', password: '123456', password_confirmation: '123456', confirmed_at: '2022-03-02 22:25:13.71382')
-      @user2 = User.new(name: 'rafael', bio: "rafael bio", email: 'rafa@rafa', password: '123456', password_confirmation: '123456', confirmed_at: '2022-03-02 22:25:13.71382')
-      @user3 = User.new(name: 'promise', bio: "promise bio", email: 'promise@promise', password: '123456', password_confirmation: '123456', confirmed_at: '2022-03-02 22:25:13.71382')
+      @user1 = User.new(name: 'josh', bio: 'josh bio', email: 'josh@josh', password: '123456',
+                        password_confirmation: '123456', confirmed_at: '2022-03-02 22:25:13.71382')
+      @user2 = User.new(name: 'rafael', bio: 'rafael bio', email: 'rafa@rafa', password: '123456',
+                        password_confirmation: '123456', confirmed_at: '2022-03-02 22:25:13.71382')
+      @user3 = User.new(name: 'promise', bio: 'promise bio', email: 'promise@promise', password: '123456',
+                        password_confirmation: '123456', confirmed_at: '2022-03-02 22:25:13.71382')
       @user1.save
       @user2.save
       @user3.save

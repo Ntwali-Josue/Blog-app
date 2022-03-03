@@ -3,7 +3,8 @@ require 'rails_helper'
 describe 'Users show Page', type: :feature do
   context 'when successfull' do
     before :each do
-      @user = User.new(name: 'josh', bio: "josh bio", email: 'josh@josh', password: '123456', password_confirmation: '123456', confirmed_at: '2022-03-02 22:25:13.71382')
+      @user = User.new(name: 'josh', bio: 'josh bio', email: 'josh@josh', password: '123456',
+                       password_confirmation: '123456', confirmed_at: '2022-03-02 22:25:13.71382')
       @user.save
       @post1 = Post.new(title: 'title', text: 'text', user_id: @user.id)
       @post2 = Post.new(title: 'title', text: 'text', user_id: @user.id)
@@ -18,7 +19,6 @@ describe 'Users show Page', type: :feature do
         fill_in 'password', with: '123456'
       end
       click_button 'Log in'
-
     end
 
     it 'can see the user\'s profile picture.' do
@@ -52,13 +52,13 @@ describe 'Users show Page', type: :feature do
     end
 
     it 'redirects to the user\'s posts page when I click the button.' do
-      visit "/users/#{@user.id}" 
+      visit "/users/#{@user.id}"
       click_link("Post ##{@post1.id}")
       expect(current_path).to eq("/users/#{@user.id}/posts/#{@post1.id}")
     end
 
     it 'redirects to the user\'s posts page when I click the button.' do
-      visit "/users/#{@user.id}" 
+      visit "/users/#{@user.id}"
       click_link('See all posts')
       expect(current_path).to eq("/users/#{@user.id}/posts")
     end

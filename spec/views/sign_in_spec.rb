@@ -3,7 +3,8 @@ require 'rails_helper'
 describe 'Sign In', type: :feature do
   context 'when successfull' do
     before :each do
-      user = User.new(name: 'josh', bio: "josh bio", email: 'rafa@rafa', password: '123456', password_confirmation: '123456', confirmed_at: '2022-03-02 22:25:13.71382')
+      user = User.new(name: 'josh', bio: 'josh bio', email: 'rafa@rafa', password: '123456',
+                      password_confirmation: '123456', confirmed_at: '2022-03-02 22:25:13.71382')
       user.save
     end
 

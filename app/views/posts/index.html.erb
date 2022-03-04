@@ -10,7 +10,8 @@
       <%= render partial: "posts/post", locals: {post: post, user: @user} %>
       <ul class="comments-list">
         <% post.most_recent_posts.each do |post| %>
-          <li> <%= @user.name%> : <%= post.text%></li>
+          <li> <%= @user.name%> : <%= post.title%></li>
+          <li> <%= post.text%> </li>
         <%end%>
       </ul>
   </div>

@@ -1,5 +1,3 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
-
 # Blog App
 
 > In this project, The user is able to see posts pers user and comment or like a given post.
